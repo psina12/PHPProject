@@ -1,0 +1,12 @@
+<form #searchForm="ngForm" (ngSubmit)="onSearch()">
+    EnterCountry
+    <input name="countryName" ngModel>
+    <button>Search</button>
+</form>
+<ul>
+    <li *ngFor="let country of countries">
+        <a routerLink="/country/{{country._id}}"> 
+            {{country.name}}
+        </a>
+    </li>
+</ul>

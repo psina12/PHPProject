@@ -1,0 +1,17 @@
+
+<H1>{{country.name}}  </H1>
+_id: {{country._id}}<br/>
+name: {{country.name}}<br/>
+population: {{country.population}}<br/>
+
+attractions: <app-add-attractions [countryId]="country._id" (attractionEmitter)="add($event)"></app-add-attractions>
+<ul>
+ <li *ngFor="let attractions of country.attractions">
+   <app-edit-attractions [countryId]="country._id"  [attractions]="attractions" (attractionEmitter)="add($event)"></app-edit-attractions>
+   <span> name: {{attractions.name}}</span> <br/>
+   <span *ngIf="attractions.city">city: {{attractions.city}} </span> <br/>
+   <span *ngIf="attractions.pic_link">pic_link: {{attractions.pic_link}} </span>
+</li>
+</ul>
+
+<app-delete [countryId]="country._id"></app-delete>
